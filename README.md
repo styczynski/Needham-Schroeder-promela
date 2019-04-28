@@ -16,7 +16,7 @@ The basic model with A, B and basic interceptor C (who passes messages transpare
 
 ## Interceptor knowledge base
 
-| Received message | Known values |
+| Received message | Additional knowledge |
 |------------------|--------------|
 | (X, A, C)        | X            |
 | (X, A, B)        | (X, A, B)    |
@@ -43,3 +43,31 @@ The basic model with A, B and basic interceptor C (who passes messages transpare
 | (A, B)           | (A, B)       |
 | (B, B)           | (B, B)       |
 | (C, B)           | (C, B)       |
+
+| Sent message | Required knowledge  |
+|--------------|---------------------|
+| (X, A, B)    | X | (X, A, B)       |
+| (X, B, B)    | X | (X, B, B)       |
+| (X, C, B)    | X | (X, C, B)       |
+| (Y, A, B)    | Y | (Y, A, B)       |
+| (Y, B, B)    | Y | (Y, B, B)       |
+| (Y, C, B)    | Y | (Y, C, B)       |
+| (ANY, A, B)  | -                   |
+| (ANY, B, B)  | -                   |
+| (ANY, C, B)  | -                   |
+| (X, A, A)    | X | (X, A, A)       |
+| (X, B, A)    | X | (X, B, A)       |
+| (X, C, A)    | X | (X, C, A)       |
+| (A, A, B)    | -                   |
+| (A, B, B)    | -                   |
+| (A, C, B)    | -                   |
+| (B, A, B)    | -                   |
+| (B, B, B)    | -                   |
+| (B, C, B)    | -                   |
+| (C, A, B)    | -                   |
+| (C, B, B)    | -                   |
+| (C, C, B)    | Y | (Y, B)          |
+| (Y, B)       | X | (X, X, A)       |
+| (X, X, A)    | (X & Y) | (X, Y, A) |
+| (X, Y, A)    | X | (X, ANY, A)     |
+| (X, ANY, A)  |                     |
