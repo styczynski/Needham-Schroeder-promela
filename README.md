@@ -44,30 +44,30 @@ The basic model with A, B and basic interceptor C (who passes messages transpare
 | (B, B)           | (B, B)       |
 | (C, B)           | (C, B)       |
 
-| Sent message | Required knowledge  |
-|--------------|---------------------|
-| (X, A, B)    | X | (X, A, B)       |
-| (X, B, B)    | X | (X, B, B)       |
-| (X, C, B)    | X | (X, C, B)       |
-| (Y, A, B)    | Y | (Y, A, B)       |
-| (Y, B, B)    | Y | (Y, B, B)       |
-| (Y, C, B)    | Y | (Y, C, B)       |
-| (ANY, A, B)  | -                   |
-| (ANY, B, B)  | -                   |
-| (ANY, C, B)  | -                   |
-| (X, A, A)    | X | (X, A, A)       |
-| (X, B, A)    | X | (X, B, A)       |
-| (X, C, A)    | X | (X, C, A)       |
-| (A, A, B)    | -                   |
-| (A, B, B)    | -                   |
-| (A, C, B)    | -                   |
-| (B, A, B)    | -                   |
-| (B, B, B)    | -                   |
-| (B, C, B)    | -                   |
-| (C, A, B)    | -                   |
-| (C, B, B)    | -                   |
-| (C, C, B)    | Y | (Y, B)          |
-| (Y, B)       | X | (X, X, A)       |
-| (X, X, A)    | (X & Y) | (X, Y, A) |
-| (X, Y, A)    | X | (X, ANY, A)     |
-| (X, ANY, A)  |                     |
+| Sent message | Required knowledge   |
+|--------------|----------------------|
+| (X, A, B)    | X or (X, A, B)       |
+| (X, B, B)    | X or (X, B, B)       |
+| (X, C, B)    | X or (X, C, B)       |
+| (Y, A, B)    | Y or (Y, A, B)       |
+| (Y, B, B)    | Y or (Y, B, B)       |
+| (Y, C, B)    | Y or (Y, C, B)       |
+| (ANY, A, B)  | -                    |
+| (ANY, B, B)  | -                    |
+| (ANY, C, B)  | -                    |
+| (X, A, A)    | X or (X, A, A)       |
+| (X, B, A)    | X or (X, B, A)       |
+| (X, C, A)    | X or (X, C, A)       |
+| (A, A, B)    | -                    |
+| (A, B, B)    | -                    |
+| (A, C, B)    | -                    |
+| (B, A, B)    | -                    |
+| (B, B, B)    | -                    |
+| (B, C, B)    | -                    |
+| (C, A, B)    | -                    |
+| (C, B, B)    | -                    |
+| (C, C, B)    | Y or (Y, B)          |
+| (Y, B)       | X or (X, X, A)       |
+| (X, X, A)    | (X & Y) or (X, Y, A) |
+| (X, Y, A)    | X or (X, ANY, A)     |
+| (X, ANY, A)  |                      |
