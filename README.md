@@ -8,3 +8,7 @@ The first approach was to model the system such way that the nonces (X, Y) are r
 ## Improving the model
 
 For simplicity we assume that for now all parts of key-exchange algorithm do not communicate with certificate provider (all public keys are known to everyone). That assumption clarifies all MSC diagrams and reduces trivial code.
+
+The basic model with A, B and basic interceptor C (who passes messages transparently) is present in the file.
+
+![Basic mitm model](https://github.com/styczynski/Needham-Schroeder-promela/blob/master/img/model_image1.png?raw=true)
