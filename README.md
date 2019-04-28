@@ -66,8 +66,8 @@ The basic model with A, B and basic interceptor C (who passes messages transpare
 | (B, C, B)    | -                    |
 | (C, A, B)    | -                    |
 | (C, B, B)    | -                    |
-| (C, C, B)    | Y or (Y, B)          |
-| (Y, B)       | X or (X, X, A)       |
-| (X, X, A)    | (X & Y) or (X, Y, A) |
-| (X, Y, A)    | X or (X, ANY, A)     |
-| (X, ANY, A)  |                      |
+| (C, C, B)    | -                    |
+| (Y, B)       | Y or (Y, B)          |
+| (X, X, A)    | X or (X, X, A)       |
+| (X, Y, A)    | (X & Y) or (X, Y, A) |
+| (X, ANY, A)  | X or (X, ANY, A)     |
