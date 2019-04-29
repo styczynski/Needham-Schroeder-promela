@@ -1,27 +1,54 @@
+/*
+ * Promela basic model for asymmetric key exchange protocol
+ * MIT License
+ *
+ * Piotr Styczynski
+ * 24-04-2019
+ */
+ 
+/* Flags to indicate if the key exchange was successful */
 bit processASuccess = 0;
 bit processBSuccess = 0;
 
+/* Knowledge state of an agent */
 bit know_X = 0;
 bit know_Y = 0;
 bit know_XYA = 0;
 bit know_XAB = 0;
 bit know_YB = 0;
 
+/*
+ * Basic data types
+ *  - NA represents data not known by the agent
+ *  - ANY represents data known by the agent, but such that its exact value can by anything
+ */
 mtype:DataType = {A, B, C, X, Y, ANY, NA};
+
+/* Name of a party that we want to know the key of */
 mtype:CAName = {CA_A, CA_B};
 
+/* Requests channel for Certification Agency */
 chan chCA = [1] of {
 	mtype:CAName, chan
 };
 
+/*
+ * Channel for 3-compounds messages
+ * <source/dest> <data1> <data2> <pubkey_used_for_enryption>
+ */
 chan chExchange = [0] of {
 	mtype:DataType, mtype:DataType, mtype:DataType, mtype:DataType
 };
 
+/*
+ * Channel for 2-compounds messages
+ * <source/dest> <data> <pubkey_used_for_enryption>
+ */
 chan chConfirm = [0] of {
 	mtype:DataType, mtype:DataType, mtype:DataType
 };
 
+/* Process that answers with public keys */
 proctype ProcessCA() {
 	mtype:CAName chReqIn;
 	chan c;
@@ -36,6 +63,7 @@ proctype ProcessCA() {
 	od
 }
 
+/* Initiator of connection */
 proctype ProcessA() {
 	chan chCAtoA = [1] of { mtype:DataType };
 	mtype:DataType pubB;
@@ -55,6 +83,7 @@ proctype ProcessA() {
 	}
 }
 
+/* Acceptor of connection */
 proctype ProcessB() {
 	chan chCAtoB = [1] of { mtype:DataType };
 	mtype:DataType pubA;
@@ -75,6 +104,9 @@ proctype ProcessB() {
 	}
 }
 
+/*
+ * Helper macros to set knowledge flags
+ */
 #define learn1(data1) if \
 		:: (data1 == X)-> know_X = 1 \
 		:: (data1 == Y)-> know_Y = 1 \
@@ -92,6 +124,7 @@ proctype ProcessB() {
 		:: else skip \
 	fi;
 
+/* MITM Agent */
 proctype ProcessC() {
 
 	chan chCAtoC = [1] of { mtype:DataType };
