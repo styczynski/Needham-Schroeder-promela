@@ -213,4 +213,6 @@ We will change hardcoded `A` and `B`s on last element of message tuples to value
 
 You can see the example with CA process here: [with_ca.pml](https://github.com/styczynski/Needham-Schroeder-promela/blob/master/src/with_ca.pml)
 
+**Trail for that example can be found [here](https://github.com/styczynski/Needham-Schroeder-promela/blob/master/trail/with_ca.pml.trail)**
+
 The diagram is nearly the same, but with queries back and forth to `CA`.
