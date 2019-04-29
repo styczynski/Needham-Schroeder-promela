@@ -191,3 +191,12 @@ The table is modeled with the following Promela code:
     :: chExchange ! (kX -> A : NA), X, ANY, A
 /* ... */
 ```
+
+### Finding the solution
+
+To find the solution please run the following command:
+```
+  $ bash ./smart_c_find.sh
+```
+
+The Spin tool will generate a trace with the result.
