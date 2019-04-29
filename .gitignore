@@ -1,0 +1,8 @@
+src/*.b
+src/*.c
+src/*.exe
+src/*.h
+src/*.m
+src/*.p
+src/*.t
+src/*.trail
