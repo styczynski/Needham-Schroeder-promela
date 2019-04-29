@@ -1,4 +1,19 @@
-# Zadanie 1 - Teoria Współbieżności
+# Ex 1 Concurrency theory - modelling with Spin
+
+## The task specification
+
+We are given two programs - the encoder and the decoder.
+* Encoder receives message `X` and public key `k_-1` and returns enrypted message `{X}k_-1`
+* Decoder receives message `{X}k_-1` and key `l` and returns `X` only and only if `k == l`
+
+We will be working with asymmetric protocol that looks like the following:
+* Party `A` downloads from `CA` server public key `kB_-1` of party `B` that it wants to connect to
+* `A` chooses random message `X` and sends message `{X, A}kB_-1` to `B`
+* Party `B` receives that message, decodes, downloads from the `CA` the public key of `A` and sends the message `{X, A}kA_-1` back to `A`
+* `A` receives that message and sends back `{X, Y}kA_-1` where `Y` is just a randomly chosen mesage
+* `Y` is now a common secret shared by both of the parties
+
+The task is to model the system in Promela and find the technique that can be exploited by the attacker to compromise the connection.
 
 ## Initial model
 
