@@ -1,7 +1,7 @@
 bit processASuccess = 0;
 bit processBSuccess = 0;
 
-mtype:DataType = {A, B, C, X, Y, ANY, R};
+mtype:DataType = {A, B, C, X, Y, ANY};
 
 chan chExchange = [0] of {
 	mtype:DataType, mtype:DataType, mtype:DataType, mtype:DataType
