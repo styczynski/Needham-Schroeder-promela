@@ -1,5 +1,6 @@
 src/*.b
 src/*.c
+src/*.out
 src/*.exe
 src/*.h
 src/*.m
