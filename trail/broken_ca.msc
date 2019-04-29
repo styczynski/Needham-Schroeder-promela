@@ -1,0 +1,71 @@
+/* CIF MSCDOCUMENT (20, 20), (1728, 4500) */
+MSCDOCUMENT main;
+MSC main;
+  /* CIF INSTANCE (100, 80), (232, 150), (0, 4190) */
+  INSTANCE :init::1;  ENDINSTANCE;
+  /* CIF INSTANCE (416, 80), (260, 150), (0, 4190) */
+  INSTANCE ProcessC:1;    /* CIF MESSAGE (200, 300) (200, 700)*/
+    OUT 2(B,ANY,A,B) TO ProcessB:1;
+    /* CIF MESSAGE (200, 800) (200, 900)*/
+    IN 3(B,CA_A) FROM ProcessB:1;
+    /* CIF MESSAGE (200, 1300) (206, 1400)*/
+    OUT 3(CA,CA_A) TO ProcessCA:1;
+    /* CIF MESSAGE (206, 1500) (200, 1600)*/
+    IN 4(CA,A) FROM ProcessCA:1;
+    /* CIF MESSAGE (200, 1700) (200, 1800)*/
+    OUT 4(B,C) TO ProcessB:1;
+    /* CIF MESSAGE (200, 1900) (200, 2000)*/
+    IN 2(B,ANY,Y,C) FROM ProcessB:1;
+    /* CIF MESSAGE (200, 2100) (200, 2200)*/
+    OUT 5(B,Y,B) TO ProcessB:1;
+    /* CIF MESSAGE (200, 2600) (200, 2700)*/
+    IN 3(A,CA_B) FROM ProcessA:1;
+    /* CIF MESSAGE (200, 2800) (206, 2900)*/
+    OUT 3(CA,CA_B) TO ProcessCA:1;
+    /* CIF MESSAGE (206, 3000) (200, 3100)*/
+    IN 4(CA,B) FROM ProcessCA:1;
+    /* CIF MESSAGE (200, 3200) (200, 3300)*/
+    OUT 4(A,C) TO ProcessA:1;
+    /* CIF MESSAGE (200, 3400) (200, 3500)*/
+    IN 2(A,X,A,C) FROM ProcessA:1;
+    /* CIF MESSAGE (200, 3600) (200, 3700)*/
+    OUT 2(A,X,A,A) TO ProcessA:1;
+    /* CIF MESSAGE (200, 3800) (200, 3900)*/
+    IN 5(A,A,C) FROM ProcessA:1;
+  ENDINSTANCE;
+  /* CIF INSTANCE (756, 80), (260, 150), (0, 4190) */
+  INSTANCE ProcessB:1;    /* CIF MESSAGE (200, 300) (200, 700)*/
+    IN 2(B,ANY,A,B) FROM ProcessC:1;
+    /* CIF MESSAGE (200, 800) (200, 900)*/
+    OUT 3(B,CA_A) TO ProcessC:1;
+    /* CIF MESSAGE (200, 1700) (200, 1800)*/
+    IN 4(B,C) FROM ProcessC:1;
+    /* CIF MESSAGE (200, 1900) (200, 2000)*/
+    OUT 2(B,ANY,Y,C) TO ProcessC:1;
+    /* CIF MESSAGE (200, 2100) (200, 2200)*/
+    IN 5(B,Y,B) FROM ProcessC:1;
+  ENDINSTANCE;
+  /* CIF INSTANCE (1096, 80), (274, 150), (0, 4190) */
+  INSTANCE ProcessCA:1;    /* CIF MESSAGE (200, 1300) (206, 1400)*/
+    IN 3(CA,CA_A) FROM ProcessC:1;
+    /* CIF MESSAGE (206, 1500) (200, 1600)*/
+    OUT 4(CA,A) TO ProcessC:1;
+    /* CIF MESSAGE (200, 2800) (206, 2900)*/
+    IN 3(CA,CA_B) FROM ProcessC:1;
+    /* CIF MESSAGE (206, 3000) (200, 3100)*/
+    OUT 4(CA,B) TO ProcessC:1;
+  ENDINSTANCE;
+  /* CIF INSTANCE (1448, 80), (260, 150), (0, 4190) */
+  INSTANCE ProcessA:1;    /* CIF MESSAGE (200, 2600) (200, 2700)*/
+    OUT 3(A,CA_B) TO ProcessC:1;
+    /* CIF MESSAGE (200, 3200) (200, 3300)*/
+    IN 4(A,C) FROM ProcessC:1;
+    /* CIF MESSAGE (200, 3400) (200, 3500)*/
+    OUT 2(A,X,A,C) TO ProcessC:1;
+    /* CIF MESSAGE (200, 3600) (200, 3700)*/
+    IN 2(A,X,A,A) FROM ProcessC:1;
+    /* CIF MESSAGE (200, 3800) (200, 3900)*/
+    OUT 5(A,A,C) TO ProcessC:1;
+  ENDINSTANCE;
+  ENDMSC;
+ENDMSCDOCUMENT;
